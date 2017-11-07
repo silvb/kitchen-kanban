@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux'
 // import { createStore } from 'redux'
 import { getBoard } from './actions/actions'
 import rootReducer from './reducers/rootReducer'
-import './index.sass'
+import './styles/index.sass'
 import App from './components/App/App'
 
 const logger = createLogger()

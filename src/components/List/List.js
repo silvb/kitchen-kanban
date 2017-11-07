@@ -3,7 +3,11 @@ import Card from '../Card/Card'
 
 const List = ({ name, cards }) => (
   <div className="list">
-    <div className="list__header">{ name }</div>
+    <div className="list__header">
+      <h2>
+        { name }
+      </h2>
+    </div>
     <div className="list__content">
       {renderCards(cards)}
     </div>

@@ -1,0 +1,28 @@
+.close-button
+  position: relative
+  width: 16px
+  height: 16px
+
+  &:before,
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    top: 50%
+    left: 0
+    width: 16px
+    height: 2px
+    background: $grey
+    border-radius: 2px
+    transition: background $hover-transition
+
+  &:before
+    transform: translate(-1px, -1px) rotate(45deg)
+
+  &:after
+    transform: translate(-1px, -1px) rotate(-45deg)
+
+  &:hover
+    &:before,
+    &:after
+      background: darken($grey, 20%)
