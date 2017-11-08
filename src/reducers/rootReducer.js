@@ -1,6 +1,7 @@
 const initialState = {
   lists: [],
   cards: [],
+  user: {}
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -9,6 +10,7 @@ const rootReducer = (state = initialState, action) => {
       ...state,
       lists: action.lists,
       cards: action.cards,
+      user: action.user,
     }),
     // ORDER_BEERS: () => ({
     //   ...state,

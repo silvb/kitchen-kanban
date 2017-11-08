@@ -19,6 +19,10 @@ const store = createStore(
 
 
 const state = {
+  user: {
+    name: 'Silvio',
+    picture: '',
+  },
   lists: [
     {
       id: 0,
@@ -36,19 +40,28 @@ const state = {
   cards: [
     {
       id: 0,
-      assignee: '',
+      assignee: {
+        name: '',
+        picture: '',
+      },
       task: 'Buy milk',
       listId: 0,
     },
     {
       id: 1,
-      assignee: 'Silvio',
+      assignee: {
+        name: 'Silvio',
+        picture: '',
+      },
       task: 'Repair kitchen cabinet',
       listId: 1,
     },
     {
       id: 2,
-      assignee: 'Claudi',
+      assignee: {
+        name: 'Claudi',
+        picture: '',
+      },
       task: 'Buy bread',
       listId: 2,
     },

@@ -5,12 +5,9 @@ import { connect } from 'react-redux'
 const Board = ({ lists, cards }) => {
   return (
     <div className="board">
-      <div className="board__header"></div>
-      <div className="board__content">
-        {
-          renderLists(lists, cards)
-        }
-      </div>
+      {
+        renderLists(lists, cards)
+      }
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserAvatar = ({ name, size = 32, picture }) => {
+const UserAvatar = ({ user, size = 32 }) => {
   const style = {
     width: `${size}px`,
     height: `${size}px`,
@@ -9,12 +9,17 @@ const UserAvatar = ({ name, size = 32, picture }) => {
 
   return (
     <div className="user-avatar" style={style}>
-      { renderName(name) }
+      { renderUser(user) }
     </div>
   )
 }
 
-const renderName = name => name.slice(0, 1).toUpperCase()
+const renderUser = user => {
+  const picture = user.picture
+  const name = user.name.slice(0, 1).toUpperCase()
+  return picture || name
+
+}
 
 UserAvatar.propTypes = {
 
