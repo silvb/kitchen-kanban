@@ -1,6 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import List from '../List/List'
+import Button from '../Button/Button'
 
 
 const Board = ({ cards, moveCard }) => {
@@ -21,11 +22,20 @@ const Board = ({ cards, moveCard }) => {
 
   return (
     <div className="board">
-      {
-        renderLists(lists, cards, moveCard)
-      }
+      <div className="board__header">
+        <Button onClick={addCard} icon="plus" text="Add Todo" />
+      </div>
+      <div className="board__content">
+        {
+          renderLists(lists, cards, moveCard)
+        }
+      </div>
     </div>
   )
+}
+
+const addCard = () => {
+  console.log('🔥');
 }
 
 // Board.propTypes = {

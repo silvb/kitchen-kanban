@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Board from '../Board/Board'
-import BoardMenu from '../BoardMenu/BoardMenu'
+// import BoardMenu from '../BoardMenu/BoardMenu'
 import { DragDropContext } from 'react-dnd'
 import { connect } from 'react-redux'
 import HTML5Backend from 'react-dnd-html5-backend'
@@ -12,7 +12,7 @@ class BoardContainer extends Component {
     return (
       <div className="board-container">
         <Board cards={cards} moveCard={moveCard} />
-        <BoardMenu />
+        {/* <BoardMenu /> */}
       </div>
     )
   }

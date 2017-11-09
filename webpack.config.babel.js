@@ -46,6 +46,17 @@ module.exports = {
             loader: 'sass-loader', // compiles SASS to CSS
           }],
       },
+      {
+        test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        use: [
+          {
+            loader: 'url-loader?limit=100000',
+            // options: isProduction ? {
+            //   name: 'fonts/[name].[ext]',
+            // } : {},
+          },
+        ],
+      },
     ],
   },
   devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
