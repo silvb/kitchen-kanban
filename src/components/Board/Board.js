@@ -1,32 +1,57 @@
 import React from 'react'
+// import PropTypes from 'prop-types'
 import List from '../List/List'
-import { connect } from 'react-redux'
 
-const Board = ({ lists, cards }) => {
+
+const Board = ({ cards, moveCard }) => {
+  const lists = [
+    {
+      id: 0,
+      name: 'To Do',
+    },
+    {
+      id: 1,
+      name: 'Will Do',
+    },
+    {
+      id: 2,
+      name: 'Done',
+    },
+  ]
+
   return (
     <div className="board">
       {
-        renderLists(lists, cards)
+        renderLists(lists, cards, moveCard)
       }
     </div>
   )
 }
 
-const renderLists = (lists, cards) => {
-  return lists.map(list => {
-    const listCards = cards.filter(card => card.listId === list.id)
+// Board.propTypes = {
+//   cards: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       task: String.isRequired,
+//       picture: String
+//       Assignee
+//     })
+//   )
+// }
+
+const renderLists = (lists, cards, moveCard) => {
+  return lists.map(({ id, name }) => {
+    const cardsInList = cards.filter(card => card.listId === id)
     return (
       <List
-        key={list.id}
-        name={list.name}
-        cards={listCards} />
+        key={id}
+        name={name}
+        cards={cardsInList}
+        listId={id}
+        moveCard={moveCard} />
     )
   })
 }
 
-const mapStateToProps = state => ({
-  lists: state.lists,
-  cards: state.cards,
-})
 
-export default connect(mapStateToProps)(Board)
+
+export default Board

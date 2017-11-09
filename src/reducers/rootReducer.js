@@ -8,20 +8,22 @@ const rootReducer = (state = initialState, action) => {
   const actions = {
     GET_BOARD: () => ({
       ...state,
-      lists: action.lists,
       cards: action.cards,
       user: action.user,
     }),
-    // ORDER_BEERS: () => ({
-    //   ...state,
-    //   isFetching: true,
-    // }),
-    // RECEIVE_BEERS: () => ({
-    //   ...state,
-      
-    //   isFetching: false,
-    //   beers: action.beers
-    // }),
+    MOVE_CARD: () => {
+      console.log(action.cardId, action.toListId)
+      const updatedCards = state.cards.map(card => {
+        const isMovingCard = card.id === action.cardId
+        card.listId = isMovingCard ? action.toListId : card.listId
+        return card
+      })
+
+      return {
+        ...state,
+        cards: updatedCards
+      }
+    },
     default: () => state,
   }
 

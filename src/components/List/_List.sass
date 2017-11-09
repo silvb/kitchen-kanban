@@ -3,8 +3,9 @@
   flex: 1 0 25%
   display: flex
   flex-flow: column
-  background: $darkgrey
+  background: $grey
   box-shadow: 4px 4px 2px 0 rgba(black, 0.7)
+  
 
   &__header
     flex: 0 0 32px
@@ -14,3 +15,13 @@
   &__content
     flex: 1 0 auto
     padding: 16px 12px
+    &__placeholder
+      height: 64px
+      background: $darkgrey
+
+    &-hover-card
+      &:after
+        content: ''
+        display: block
+        height: 64px
+        border: 2px dashed $darkgrey

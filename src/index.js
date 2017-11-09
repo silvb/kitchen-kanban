@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 // import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
-// import { createStore } from 'redux'
 import { getBoard } from './actions/actions'
 import rootReducer from './reducers/rootReducer'
 import './styles/index.sass'
@@ -18,25 +17,11 @@ const store = createStore(
 )
 
 
-const state = {
+const initialMockState = {
   user: {
     name: 'Silvio',
     picture: '',
   },
-  lists: [
-    {
-      id: 0,
-      name: 'To Do',
-    },
-    {
-      id: 1,
-      name: 'Will Do',
-    },
-    {
-      id: 2,
-      name: 'Done',
-    },
-  ],
   cards: [
     {
       id: 0,
@@ -54,7 +39,7 @@ const state = {
         picture: '',
       },
       task: 'Repair kitchen cabinet',
-      listId: 1,
+      listId: 2,
     },
     {
       id: 2,
@@ -68,7 +53,7 @@ const state = {
   ],
 }
 
-store.dispatch(getBoard(state))
+store.dispatch(getBoard(initialMockState))
 
 render(
   <Provider store={store}>
