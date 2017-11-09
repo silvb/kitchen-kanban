@@ -18,9 +18,9 @@ const collect = (connect, monitor) => ({
   isDragging: monitor.isDragging(),
 })
 
-const Card = ({ task, assignee, connectDragSource }) =>
+const Card = ({ task, assignee, connectDragSource, isDragging }) =>
   connectDragSource(
-    <div className="card">
+    <div className={`card ${isDragging ? 'card-hide' : ''}`}>
       <div className="card__task">{task}</div>
       <div className="card__assignee">
         <UserAvatar user={assignee} />
