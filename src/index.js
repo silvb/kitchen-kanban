@@ -25,6 +25,7 @@ const initialMockState = {
   cards: [
     {
       id: 0,
+      lastUpdated: Date.now(),
       assignee: {
         name: '',
         picture: '',
@@ -34,6 +35,7 @@ const initialMockState = {
     },
     {
       id: 1,
+      lastUpdated: Date.now(),
       assignee: {
         name: 'Silvio',
         picture: '',
@@ -43,6 +45,7 @@ const initialMockState = {
     },
     {
       id: 2,
+      lastUpdated: Date.now(),
       assignee: {
         name: 'Claudi',
         picture: '',

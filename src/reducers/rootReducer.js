@@ -12,12 +12,14 @@ const rootReducer = (state = initialState, action) => {
       user: action.user,
     }),
     MOVE_CARD: () => {
-      console.log(action.cardId, action.toListId)
-      const updatedCards = state.cards.map(card => {
-        const isMovingCard = card.id === action.cardId
-        card.listId = isMovingCard ? action.toListId : card.listId
-        return card
-      })
+      const updatedCards = state.cards
+        .map(card => {
+          if (card.id === action.cardId) {
+            card.listId = action.toListId
+            card.lastUpdated = Date.now()
+          }
+          return card
+        })
 
       return {
         ...state,

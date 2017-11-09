@@ -32,14 +32,18 @@ const List = ({ name, cards, connectDropTarget, isOver }) =>
   )
 
 const renderCards = cards =>
-  cards.map(({ id, listId, task, assignee }) =>
-    <Card
-      key={id}
-      cardId={id}
-      listId={listId}
-      task={task}
-      assignee={assignee} />
-  )
+  cards
+    .sort((prev, next) =>
+      prev.lastUpdated > next.lastUpdated ? 1 : -1
+    )
+    .map(({ id, listId, task, assignee }) =>
+      <Card
+        key={id}
+        cardId={id}
+        listId={listId}
+        task={task}
+        assignee={assignee} />
+    )
 
 
 // export default List
