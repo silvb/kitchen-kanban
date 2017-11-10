@@ -5,7 +5,6 @@
   justify-content: space-between
   margin-bottom: 16px
   padding: 12px 16px
-  transform: rotate(-2deg)
   box-shadow: 4px 4px 2px 0 rgba(black, 0.7)
   cursor: move
   
@@ -13,6 +12,12 @@
     display: none
 
   &__task
-    transform: rotate(2deg)
+    line-height: 20px
+    font-style: italic
+    font-weight: bold
   &__assignee
-    transform: rotate(2deg)
+    margin-left: 8px
+
+@for $i from 1 through 20
+  .card:nth-child(#{$i})
+    transform: rotate(#{random(8) - 4}deg)

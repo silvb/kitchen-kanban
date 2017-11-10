@@ -36,13 +36,18 @@ const renderCards = cards =>
     .sort((prev, next) =>
       prev.lastUpdated > next.lastUpdated ? 1 : -1
     )
-    .map(({ id, listId, task, assignee }) =>
-      <Card
-        key={id}
-        cardId={id}
-        listId={listId}
-        task={task}
-        assignee={assignee} />
+    .map(({ id, listId, task, assignee }) => {
+      const rotation = Math.floor((Math.random() * 8) - 4)
+      return (
+        <Card
+          key={id}
+          cardId={id}
+          listId={listId}
+          task={task}
+          assignee={assignee}
+          rotation={rotation} />
+      )
+    }
     )
 
 

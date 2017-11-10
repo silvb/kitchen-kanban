@@ -1,10 +1,10 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import List from '../List/List'
 import Button from '../Button/Button'
+import { addCard } from '../../actions/actions'
+import { connect } from 'react-redux'
 
-
-const Board = ({ cards, moveCard }) => {
+const Board = ({ cards, moveCard, addCard, user }) => {
   const lists = [
     {
       id: 0,
@@ -23,7 +23,7 @@ const Board = ({ cards, moveCard }) => {
   return (
     <div className="board">
       <div className="board__header">
-        <Button onClick={addCard} icon="plus" text="Add Todo" />
+        <Button onClick={() => addCard('This is a new shiny task', user, 0)} icon="plus" text="Add Todo" />
       </div>
       <div className="board__content">
         {
@@ -34,19 +34,7 @@ const Board = ({ cards, moveCard }) => {
   )
 }
 
-const addCard = () => {
-  console.log('🔥');
-}
 
-// Board.propTypes = {
-//   cards: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       task: String.isRequired,
-//       picture: String
-//       Assignee
-//     })
-//   )
-// }
 
 const renderLists = (lists, cards, moveCard) => {
   return lists.map(({ id, name }) => {
@@ -62,6 +50,6 @@ const renderLists = (lists, cards, moveCard) => {
   })
 }
 
+const mapStateToProps = ({ user, cards }) => ({ user, cards })
 
-
-export default Board
+export default (connect(mapStateToProps, { addCard })(Board))

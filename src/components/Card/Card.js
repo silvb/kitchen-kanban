@@ -18,9 +18,12 @@ const collect = (connect, monitor) => ({
   isDragging: monitor.isDragging(),
 })
 
-const Card = ({ task, assignee, connectDragSource, isDragging }) =>
+const Card = ({ task, assignee, rotation, connectDragSource, isDragging }) =>
   connectDragSource(
-    <div className={`card ${isDragging ? 'card-hide' : ''}`}>
+    <div className={`card ${isDragging ? 'card-hide' : ''}`}
+      style={{
+        transform: `rotate(${rotation}deg)`,
+      }}>
       <div className="card__task">{task}</div>
       <div className="card__assignee">
         <UserAvatar user={assignee} />

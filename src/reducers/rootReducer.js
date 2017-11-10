@@ -26,8 +26,19 @@ const rootReducer = (state = initialState, action) => {
         cards: updatedCards
       }
     },
+    ADD_CARD: () => ({
+      ...state,
+      cards: [...state.cards, {
+        task: action.task,
+        assignee: action.assignee,
+        listId: action.listId,
+        id: state.cards.length
+      }]
+    }),
     default: () => state,
   }
+
+  console.log(action.type);
 
   return (actions[action.type] || actions.default)()
 }
