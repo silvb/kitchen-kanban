@@ -9,7 +9,7 @@ const Header = ({ user }) => (
     </div>
     <div className="header-container__menu">
       <div className="header-container__menu__user">
-        <UserAvatar user={user} size={64} />
+        <UserAvatar user={user} size={48} />
       </div>
     </div>
   </header>

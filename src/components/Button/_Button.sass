@@ -1,14 +1,27 @@
 button.std-btn
-  background: $blue
+  background: $main-color
   padding: 8px 16px
   color: white
-  // text-transform: uppercase
   border-radius: 3px
   box-shadow: 2px 2px 2px 0 rgba(black, 0.2)
-  transition: background $hover-transition
-
-  &:hover
-    background: darken($blue, 20%)
+  transition: text-shadow $hover-transition
 
   .fa
     margin-right: 8px
+
+  &:hover
+    text-shadow: 0 0 8px rgba(white, 1)
+
+  &:focus
+    animation: stomp-effect 0.3s ease-out
+
+  @keyframes stomp-effect
+    0%
+      box-shadow: 2px 2px 2px 0 rgba(black, 0.2)
+      background: $main-color
+    50%
+      background: darken($main-color, 5%)
+      box-shadow: 0 0 0 0 rgba(black, 0.2)
+    100%
+      box-shadow: 2px 2px 2px 0 rgba(black, 0.2)
+      background: $main-color
